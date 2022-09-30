@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <title>Assignment06</title>
+<body>
+
+<h2>Musician guess by ShanmukhaSrinivas Rali</h2>
+<form>
+    <label for="secret_value">Enter the secret musician name</label>
+    <input type="password" id="secret_value" name="secret_value" value="John Lennon"><br>
+    <br>
+
+    <label for="guess_musician">Guess the musician</label>
+    <input type="text" name="guess_musician" id="guess_musician" value=""><br>
+    <br>
+
+    <button type="button" onclick="checkGuess()" > Submit </button>
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+correct=0
+wrong = 0
+function checkGuess(){
+    console.log("Getting form values")
+    secret_value = document.getElementById("secret_value").value
+    guess_musician = document.getElementById("guess_musician").value
+    
+    out = document.getElementById("result")
+    if(secret_value==guess_musician){
+        correct=correct + 1
+        out.innerHTML = "correct - "+correct+","+"wrong - "+wrong
+        alert("You got it right")
+    } else {
+        wrong = wrong + 1
+        out.innerHTML = "correct - "+correct+","+"wrong - "+wrong
+        alert("Wrong Musician")
+    }
+
+}
+</script>
+
+</body>
+</html> 
