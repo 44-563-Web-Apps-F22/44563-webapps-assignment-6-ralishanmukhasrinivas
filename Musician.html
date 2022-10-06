@@ -28,6 +28,8 @@
 <script> 
 correct=0
 wrong = 0
+temp1=0
+temp2=0
 function checkGuess(){
     console.log("Getting form values")
     secret_value = document.getElementById("secret_value").value
@@ -36,10 +38,20 @@ function checkGuess(){
     out = document.getElementById("result")
     if(secret_value==guess_musician){
         correct=correct + 1
+        temp1=temp1+1
         out.innerHTML = "correct - "+correct+","+"wrong - "+wrong
         alert("You got it right")
     } else {
+        temp2=temp2+1
         wrong = wrong + 1
+        if(temp1=0 && temp2%3==0 && temp2!=0){
+            alert("sorry,Game over")
+            return
+        }
+        else if(temp1>0){
+            temp1=0
+            temp2=0
+        }
         out.innerHTML = "correct - "+correct+","+"wrong - "+wrong
         alert("Wrong Musician")
     }
@@ -69,22 +81,6 @@ function checkGuess(){
             }
         }
     </script>
-     <script>
-        function endoftheGame()
-        {
-            while (wrong==3) 
-            {
-                if (wrong >=3) {
-                    wrong -= 4
-                    alert("Sorry, game over.")
-                }
-                else {
-                    alert("You got it right")
-                    document.getElementById("result").innerHTML = "Correct count:" + correct + " " + "Wrong count:" + wrong
-                }
-            }
-        }
-        </script>
-
+     
 </body>
 </html> 
